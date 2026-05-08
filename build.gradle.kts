@@ -7,6 +7,8 @@ plugins {
 group = "com.powerful"
 version = "0.0.1-SNAPSHOT"
 
+extra["commons-lang3.version"] = "3.18.0"
+
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(21)
@@ -30,7 +32,7 @@ dependencies {
     runtimeOnly("io.jsonwebtoken:jjwt-impl:0.12.6")
     runtimeOnly("io.jsonwebtoken:jjwt-jackson:0.12.6")
 
-    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.7.0")
+    implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.14")
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.security:spring-security-test")
