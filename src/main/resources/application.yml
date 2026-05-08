@@ -2,7 +2,7 @@ spring:
   application:
     name: jwt
   profiles:
-    active: local
+    active: ${SPRINGPROFILE:local}
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
     url: ${MARIADBDOMAIN}
