@@ -8,7 +8,8 @@
 - 인증 도구: JWT
 - 쿼리 도구: JPA
   - DB: MARIADB
-  - DB DOMAIN: ${MARIADBDOMAIN} 환경 변수 활용
+  - DB URL: ${MARIADBDOMAIN} 환경 변수 활용
+  - DB USERNAME: `powerfulh`
   - DB PW: ${MARIADBPASSWORD} 환경 변수 활용
 - 구조: com.powerful.jwt
 - 프로필: local, main
