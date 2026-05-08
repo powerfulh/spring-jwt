@@ -31,4 +31,12 @@ public class AuthService {
         }
         return new LoginResponse(tokenProvider.createToken(user.getUsername()));
     }
+
+    public void register(LoginRequest request) {
+        if (userRepository.findByUsername(request.username()).isPresent()) {
+            throw new ResponseStatusException(HttpStatus.CONFLICT);
+        }
+        String hashed = passwordEncoder.encode(request.password());
+        userRepository.save(new User(request.username(), hashed));
+    }
 }

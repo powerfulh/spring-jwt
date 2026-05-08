@@ -18,5 +18,5 @@ spring:
     open-in-view: false
 
 jwt:
-  secret: ${JWTSECRET}
+  secret: ${JWTSECRET:dev-only-default-secret-key-please-change-in-production-environment}
   expiration-millis: 3600000

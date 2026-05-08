@@ -6,20 +6,24 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "users")
+@Table(name = "jwt_user")
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer n;
 
-    @Column(unique = true, nullable = false, length = 64)
+    @Column(unique = true, nullable = false, length = 16)
     private String username;
 
-    @Column(nullable = false, length = 100)
+    @Column(nullable = false, length = 80)
     private String password;
+
+    @Column(name = "updated_date", insertable = false, updatable = false)
+    private LocalDateTime updatedDate;
 
     protected User() {
     }
@@ -29,8 +33,8 @@ public class User {
         this.password = password;
     }
 
-    public Long getId() {
-        return id;
+    public Integer getN() {
+        return n;
     }
 
     public String getUsername() {
@@ -39,5 +43,9 @@ public class User {
 
     public String getPassword() {
         return password;
+    }
+
+    public LocalDateTime getUpdatedDate() {
+        return updatedDate;
     }
 }
