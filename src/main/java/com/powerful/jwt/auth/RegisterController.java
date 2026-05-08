@@ -1,6 +1,7 @@
 package com.powerful.jwt.auth;
 
 import jakarta.validation.Valid;
+import org.springframework.context.annotation.Profile;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,16 +9,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/auth")
-public class AuthController {
+@Profile("local")
+public class RegisterController {
 
     private final AuthService authService;
 
-    public AuthController(AuthService authService) {
+    public RegisterController(AuthService authService) {
         this.authService = authService;
     }
 
-    @PostMapping("/login")
-    public LoginResponse login(@Valid @RequestBody LoginRequest request) {
-        return authService.login(request);
+    @PostMapping("/register")
+    public void register(@Valid @RequestBody LoginRequest request) {
+        authService.register(request);
     }
 }
