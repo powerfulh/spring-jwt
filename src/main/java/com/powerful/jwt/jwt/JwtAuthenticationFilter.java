@@ -6,7 +6,6 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.Set;
 
 import org.springframework.lang.NonNull;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,7 +16,12 @@ import org.springframework.web.filter.OncePerRequestFilter;
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
-    private static final Set<String> SKIP_PATHS = Set.of("/auth/login", "/auth/register");
+    private static final List<String> SKIP_PREFIXES = List.of(
+            "/auth/login",
+            "/auth/register",
+            "/v3/api-docs",
+            "/swagger-ui"
+    );
     private static final String AUTH_HEADER = "Authorization";
     private static final String BEARER_PREFIX = "Bearer ";
 
@@ -29,7 +33,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) {
-        return SKIP_PATHS.contains(request.getServletPath());
+        String path = request.getServletPath();
+        return SKIP_PREFIXES.stream().anyMatch(path::startsWith);
     }
 
     @Override

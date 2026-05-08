@@ -6,3 +6,4 @@ logging:
   level:
     root: INFO
     com.powerful.jwt: DEBUG
+    org.springframework.security: DEBUG
