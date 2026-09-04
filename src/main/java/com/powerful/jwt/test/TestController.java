@@ -11,10 +11,12 @@ public class TestController {
 
     @GetMapping
     public void get() {
+        // get 수정
     }
 
     @PostMapping
     public void post() {
+        // post 수정
     }
 
     void test() {
