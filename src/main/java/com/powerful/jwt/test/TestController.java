@@ -16,4 +16,8 @@ public class TestController {
     @PostMapping
     public void post() {
     }
+
+    void test() {
+        
+    }
 }
