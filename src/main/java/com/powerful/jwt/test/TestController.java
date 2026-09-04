@@ -18,8 +18,4 @@ public class TestController {
     public void post() {
         // post 수정
     }
-
-    void test() {
-
-    }
 }
