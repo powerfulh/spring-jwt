@@ -11,6 +11,7 @@ public class TestController {
 
     @GetMapping
     public void get() {
+        // get 수정
     }
 
     @PostMapping
